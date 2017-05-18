@@ -90,6 +90,12 @@ def run_instance(standard,np=3,print_results=None,make_outputfile=True,N=50,deep
 
 
 def multiple_of(x,divisors):
+    # We should be able to pass 0 through the chain so that we can
+    # forward the 'done' or 'kill' message through the pipeline
+    # with whatever data we  happen to be processing at the time
+    # of reception of processor p's done signal
+    if x == 0:
+        return 0
     return any([x % y == 0 for y in divisors])
 
 
